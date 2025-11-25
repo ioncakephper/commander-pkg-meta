@@ -11,7 +11,7 @@ jobs:
         id: release
         with:
           release-type: node
-          package-name: 'commander-pkg-meta'
+          # package-name: 'commander-pkg-meta'
 # The following job is commented out to prevent publishing to npm.
 #  publish:
 #    needs: release-please
