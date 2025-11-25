@@ -41,7 +41,8 @@ function _getMetaDescription(description) {
   }
 
   const d = description.trim();
-  if (d.length === 0) { // Check for empty string after trimming
+  if (d.length === 0) {
+    // Check for empty string after trimming
     return undefined;
   }
   return d;
@@ -111,7 +112,4 @@ function getMetaData({ name, bin, version, description }) {
 
 module.exports = {
   getMetaData,
-  _getMetaVersion, // Temporarily exported for testing
-  _getMetaDescription, // Temporarily exported for testing
-  _getMetaName, // Temporarily exported for testing
 };

@@ -12,9 +12,9 @@ This package provides a simple function, `getMetaData`, to reliably extract a pa
 ## Key Features
 
 - **Intelligent Name Resolution**: Automatically selects the best name from `package.json` `bin` or `name` fields. It prioritizes the `bin` field:
-    - If `bin` is a string, its trimmed value is used.
-    - If `bin` is an object, the trimmed value of its first key is used.
-    - If `bin` is not available or usable, it falls back to the `name` field.
+  - If `bin` is a string, its trimmed value is used.
+  - If `bin` is an object, the trimmed value of its first key is used.
+  - If `bin` is not available or usable, it falls back to the `name` field.
 - **Semantic Version Validation**: Uses `semver` to validate and clean version strings.
 - **Graceful Fallbacks**: Provides sensible default values for missing or invalid fields.
 - **Developer Warnings**: Logs helpful warnings to the console when input data is invalid, preventing silent failures.
@@ -62,11 +62,10 @@ try {
 
   // program's name, version, and description match those in package.json
   const program = new Command();
-  program
-    .name(metaData.name).version(metaData.version).description(metadata.description)
+  program.name(metaData.name).version(metaData.version).description(metadata.description);
 
-    // ...
-} catch(error) {
+  // ...
+} catch (error) {
   console.error(error);
 }
 ```
