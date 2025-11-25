@@ -1,0 +1,30 @@
+name: Feature Request
+description: Suggest an idea for this project
+title: '[Feature]: '
+labels: ['enhancement']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: What is your feature request?
+      description: Please provide a detailed description of the feature you are requesting.
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: problem-and-solution
+    attributes:
+      label: What problem does this feature solve?
+      description: Please describe the problem this feature solves and how it would improve the project.
+      placeholder: A clear and concise description of what problem this feature solves.
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.

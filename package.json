@@ -1,0 +1,57 @@
+{
+  "name": "commander-pkg-meta",
+  "version": "1.0.0",
+  "description": "A lightweight and robust utility to extract and validate essential metadata from `package.json` properties.",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioncakephper/commander-pkg-meta.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ioncakephper/commander-pkg-meta/issues"
+  },
+  "homepage": "https://github.com/ioncakephper/commander-pkg-meta#readme",
+  "keywords": [
+    "metadata",
+    "package.json",
+    "cli",
+    "build-tool",
+    "package-json-reader",
+    "cli-helper",
+    "build-utility",
+    "validation",
+    "semver",
+    "robust",
+    "lightweight",
+    "name-resolution",
+    "version-validation",
+    "graceful-fallback",
+    "json"
+  ],
+  "author": "Ion Gireada",
+  "license": "MIT",
+  "dependencies": {
+    "semver": "^7.7.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "jest": "^29.0.0",
+    "prettier": "^3.6.2"
+  }
+}
