@@ -12,16 +12,19 @@ const DEFAULT = {
  * @returns {string|undefined} The cleaned version if valid, otherwise undefined.
  */
 function _getMetaVersion(version) {
-  if (typeof version === 'string') {
-    const v = version.trim();
-    if (semver.valid(v)) {
-      return semver.clean(v);
+  if (typeof version !== 'string') {
+    if (version !== undefined && version !== null) {
+      console.warn(`Version input is not a string: '${typeof version}'.`);
     }
-    console.warn(`Invalid semantic version string provided: '${version}'.`);
-  } else if (version !== undefined && version !== null) {
-    console.warn(`Version input is not a string: '${typeof version}'.`);
+    return undefined;
   }
-  return undefined;
+
+  const v = version.trim();
+  if (!semver.valid(v)) {
+    console.warn(`Invalid semantic version string provided: '${version}'.`);
+    return undefined;
+  }
+  return semver.clean(v);
 }
 
 /**
@@ -30,15 +33,18 @@ function _getMetaVersion(version) {
  * @returns {string|undefined} The trimmed description if valid, otherwise undefined.
  */
 function _getMetaDescription(description) {
-  if (typeof description === 'string') {
-    const d = description.trim();
-    if (d) {
-      return d;
+  if (typeof description !== 'string') {
+    if (description !== undefined && description !== null) {
+      console.warn(`Description input is not a string: '${typeof description}'.`);
     }
-  } else if (description !== undefined && description !== null) {
-    console.warn(`Description input is not a string: '${typeof description}'.`);
+    return undefined;
   }
-  return undefined;
+
+  const d = description.trim();
+  if (d.length === 0) { // Check for empty string after trimming
+    return undefined;
+  }
+  return d;
 }
 
 /**
@@ -50,13 +56,14 @@ function _getMetaDescription(description) {
  */
 function _getMetaName({ name, bin }) {
   const getTrimmed = (str) => {
-    if (typeof str === 'string') {
-      const trimmed = str.trim();
-      if (trimmed.length > 0) {
-        return trimmed;
-      }
+    if (typeof str !== 'string') {
+      return undefined;
     }
-    return undefined;
+    const trimmed = str.trim();
+    if (trimmed.length === 0) {
+      return undefined;
+    }
+    return trimmed;
   };
 
   let nameCandidate;
@@ -96,12 +103,15 @@ function _getMetaName({ name, bin }) {
  */
 function getMetaData({ name, bin, version, description }) {
   return {
-    name: _getMetaName({ name, bin }) || DEFAULT.NAME,
-    version: _getMetaVersion(version) || DEFAULT.VERSION,
-    description: _getMetaDescription(description) || DEFAULT.DESCRIPTION,
+    name: _getMetaName({ name, bin }) ?? DEFAULT.NAME,
+    version: _getMetaVersion(version) ?? DEFAULT.VERSION,
+    description: _getMetaDescription(description) ?? DEFAULT.DESCRIPTION,
   };
 }
 
 module.exports = {
   getMetaData,
+  _getMetaVersion, // Temporarily exported for testing
+  _getMetaDescription, // Temporarily exported for testing
+  _getMetaName, // Temporarily exported for testing
 };
