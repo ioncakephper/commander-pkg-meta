@@ -8,9 +8,17 @@ permissions:
   issues: write        # allow commenting on issues if needed
 
 jobs:
+
   release-please:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: ioncakephper/commander-pkg-meta
+
       - uses: googleapis/release-please-action@v4
         id: release
         with:
