@@ -2,6 +2,11 @@
 
 [![NPM Version](https://img.shields.io/npm/v/commander-pkg-meta.svg)](https://www.npmjs.com/package/commander-pkg-meta)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- [![Build Status](https://github.com/ioncakephper/commander-pkg-meta/workflows/CI/badge.svg)](https://github.com/ioncakephper/commander-pkg-meta/actions)
+[![Codecov](https://codecov.io/gh/ioncakephper/commander-pkg-meta/branch/main/graph/badge.svg)](https://codecov.io/gh/ioncakephper/commander-pkg-meta) -->
+[![Last Commit](https://img.shields.io/github/last-commit/ioncakephper/commander-pkg-meta.svg)](https://github.com/ioncakephper/commander-pkg-meta/commits/main)
+[![GitHub stars](https://img.shields.io/github/stars/ioncakephper/commander-pkg-meta.svg?style=social)](https://github.com/ioncakephper/commander-pkg-meta/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/ioncakephper/commander-pkg-meta.svg?style=social)](https://github.com/ioncakephper/commander-pkg-meta/network)
 
 A lightweight and robust utility to extract and validate essential metadata from `package.json` properties.
 
